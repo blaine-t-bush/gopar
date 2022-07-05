@@ -1,0 +1,8 @@
+# Environment variables
+.env
+
+# Workspace settings
+.vscode/
+
+# Build files
+home
