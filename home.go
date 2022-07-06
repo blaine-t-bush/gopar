@@ -45,7 +45,8 @@ func main() {
 	router.Use(gin.Logger())   // Writes logs to gin.DefaultWriter, by default os.Stdout
 	router.Use(gin.Recovery()) // Recovers from panics and instead delivers a 500
 
-	router.LoadHTMLGlob("templates/*")
+	router.LoadHTMLGlob("templates/**/*") // Load HTML templates
+	router.Static("/assets", "./assets")  // Serve static files from the assets project directory in the assets route
 
 	router.GET("/", handleRouteHome)
 	router.GET("/about/", handleRouteAbout)
@@ -53,5 +54,5 @@ func main() {
 	router.GET("/projects/", handleRouteProjects)
 	router.GET("/projects/:slug/", handleRouteProject)
 
-	router.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	router.Run(":8080") // listen and serve on http://0.0.0.0:8080, or http://localhost:8080 on windows
 }
