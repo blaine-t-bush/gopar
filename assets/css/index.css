@@ -4,10 +4,13 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     background-color: lightgray;
-    margin: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 768px;
     min-height: 100vh;
     padding: 0;
     position: relative;
+    width: 100%;
 }
 
 header {
@@ -33,7 +36,11 @@ nav > a {
 }
 
 main {
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 768px;
     padding: 1rem 1rem 3rem 1rem;
+    width: 100%;
 }
 
 footer {

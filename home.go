@@ -33,16 +33,20 @@ func getProjectBySlug(slug string) data.Project {
 	return data.Project{}
 }
 
-func handleRouteHome(c *gin.Context) {
-	c.HTML(http.StatusOK, "home", gin.H{"page_title": "Home"})
-}
-
 func handleRouteAbout(c *gin.Context) {
 	c.HTML(http.StatusOK, "about", gin.H{"page_title": "About"})
 }
 
 func handleRouteContact(c *gin.Context) {
 	c.HTML(http.StatusOK, "contact", gin.H{"page_title": "Contact"})
+}
+
+func handleRouteCV(c *gin.Context) {
+	c.HTML(http.StatusOK, "cv", gin.H{"page_title": "CV"})
+}
+
+func handleRouteHome(c *gin.Context) {
+	c.HTML(http.StatusOK, "home", gin.H{"page_title": "Home"})
 }
 
 func handleRoutePosts(c *gin.Context) {
@@ -72,6 +76,7 @@ func main() {
 		log.Fatalf("Error loading .env file")
 	}
 
+	gin.SetMode(os.Getenv("GIN_MODE"))
 	router := gin.New()                   // Creates a router without any middleware
 	router.HTMLRender = ginview.Default() // Use goview with gin support for template rendering
 	router.Use(gin.Logger())              // Writes logs to gin.DefaultWriter, by default os.Stdout
@@ -81,6 +86,7 @@ func main() {
 	router.GET("/", handleRouteHome)
 	router.GET("/about/", handleRouteAbout)
 	router.GET("/contact/", handleRouteContact)
+	router.GET("/cv/", handleRouteCV)
 	router.GET("/posts/", handleRoutePosts)
 	router.GET("/posts/:slug/", handleRoutePost)
 	router.GET("/projects/", handleRouteProjects)

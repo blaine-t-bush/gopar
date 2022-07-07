@@ -16,6 +16,14 @@ var (
 			Slug:        "project-b",
 			Name:        "Project B",
 			Description: "This is the description of Project B",
+		}, {
+			Slug:        "project-c",
+			Name:        "Project C",
+			Description: "This is the description of Project C",
+		}, {
+			Slug:        "project-d",
+			Name:        "Project D",
+			Description: "This is the description of Project D",
 		},
 	}
 )
