@@ -1,11 +1,10 @@
-{{ template "globals/header.html" .}}
-
+{{ define "content" }}
 <h1>Home</h1>
 
 <ul>
   <li><a href="./about">About</a></li>
   <li><a href="./contact">Contact</a></li>
+  <li><a href="./posts">Posts</a></li>
   <li><a href="./projects">Projects</a></li>
 </ul>
-
-{{ template "globals/footer.html" .}}
+{{ end }}

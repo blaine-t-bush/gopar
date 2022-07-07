@@ -1,0 +1,10 @@
+{{ define "content" }}
+
+<h1>Posts</h1>
+
+{{ range .Posts }}
+<a href="./{{ .Slug }}/">
+  <h2>{{ .Title }}</h2>
+  <p>{{ .PostedAt }}</p>
+</a>
+{{ end }} {{ end }}
